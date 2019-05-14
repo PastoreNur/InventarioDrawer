@@ -8,31 +8,25 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class SQLiteHelperClient extends SQLiteOpenHelper {
+public class SQLiteHelperOrder extends SQLiteOpenHelper {
 
     //String tabla_articulo="CREATE TABLE articulos(codigo"+ID_PK+",descripcion text, precio real )";
 
-    private String tabla_client = "CREATE TABLE clientes(id INTEGER PRIMARY KEY AUTOINCREMENT, _id text, " +
-            "nombres text, apellidos text, direccion text, email text, dui int, nit int, telefono int, estado text)";
+    private String tabla_client = "CREATE TABLE ordenes(id INTEGER PRIMARY KEY AUTOINCREMENT, _id text, " +
+            "fecha int, total real, estado text)";
 
-    public SQLiteHelperClient(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    public SQLiteHelperOrder(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
 
     public List<Client> baseDatosLocal() {
         SQLiteDatabase bd = this.getWritableDatabase();
-        Cursor filas = bd.rawQuery("select * from clientes", null);
-        List<Client> clientList = new ArrayList<>();
+        Cursor filas = bd.rawQuery("select * from ordenes", null);
+        List<Order> orderList = new ArrayList<>();
 
         while(filas.moveToNext()) {
-            Client client = new Client(Long.parseLong(filas.getString(0)),
-                    filas.getString(1),filas.getString(2)
-                    ,filas.getString(3),filas.getString(4),
-                    Long.parseLong(filas.getString(8)),filas.getString(5),
-                    Integer.parseInt(filas.getString(6)),
-                    Long.parseLong(filas.getString(7)),filas.getString(9));
-            clientList.add(client);
+            Order order = new Order());
+            orderList.add(order);
         }
 
         bd.close();

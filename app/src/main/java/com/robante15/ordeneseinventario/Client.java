@@ -11,9 +11,10 @@ public class Client {
     private String email;
     private int dui;
     private long nit;
+    private String estado;
 
     public Client(long id,String _id,String nombres, String apellidos, String direccion, long telefono,
-                  String email, int dui, long nit){
+                  String email, int dui, long nit, String estado){
         this.id = id;
         this._id = _id;
         this.nombres = nombres;
@@ -23,6 +24,7 @@ public class Client {
         this.email = email;
         this.dui = dui;
         this.nit = nit;
+        this.estado = estado;
     }
 
     public String getNombres() {
@@ -96,5 +98,13 @@ public class Client {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 }

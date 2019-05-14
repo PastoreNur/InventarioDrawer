@@ -1,6 +1,7 @@
 package com.robante15.ordeneseinventario;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -117,7 +118,9 @@ public class ClientesGeneral extends Fragment {
                             ContentValues registro = new ContentValues();
                             String cadena = "";
 
+
                             for(int i = 0; i < clientList.size(); i++) {
+                                boolean sinc = false;
                                 registro.put("_id",clientList.get(i).get_id());
                                 registro.put("nombres", clientList.get(i).getNombres());
                                 registro.put("apellidos", clientList.get(i).getApellidos());
@@ -125,7 +128,20 @@ public class ClientesGeneral extends Fragment {
                                 registro.put("email", clientList.get(i).getEmail());
                                 registro.put("dui", clientList.get(i).getDui());
                                 registro.put("nit", clientList.get(i).getNit());
-                                bd.insert("clientes", null, registro);
+                                registro.put("estado", "Sincronizado");
+
+                                Cursor filas = bd.rawQuery("select _id from clientes", null);
+
+                                while(filas.moveToNext()) {
+                                    if(filas.getString(0) == clientList.get(i).get_id()){
+                                        sinc = true;
+                                    }
+                                }
+
+                                if (!sinc){
+                                    bd.insert("clientes", null, registro);
+                                }
+
                                 cadena += clientList.get(i).get_id() + " : " + clientList.get(i).getNombres() + "\n";
 
                                 registro.clear();

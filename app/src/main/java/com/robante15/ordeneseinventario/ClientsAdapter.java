@@ -42,6 +42,7 @@ public class ClientsAdapter extends RecyclerView.Adapter<ClientsAdapter.ClientVi
         holder.textViewApellido.setText(apellidos);
         holder.textViewTelefono.setText("Teléfono: "+Telefono);
         holder.textViewDUI.setText("DUI: " + String.valueOf(client.getDui()));
+        holder.textViewEstado.setText("Estado: " + client.getEstado());
     }
 
     public int getItemCount() {
@@ -50,7 +51,7 @@ public class ClientsAdapter extends RecyclerView.Adapter<ClientsAdapter.ClientVi
 
     class ClientViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textViewNombre, textViewApellido, textViewTelefono, textViewDUI;
+        TextView textViewNombre, textViewApellido, textViewTelefono, textViewDUI, textViewEstado;
 
 
         public ClientViewHolder(View itemView) {
@@ -60,6 +61,7 @@ public class ClientsAdapter extends RecyclerView.Adapter<ClientsAdapter.ClientVi
             textViewApellido = itemView.findViewById(R.id.lbl_apellido);
             textViewTelefono = itemView.findViewById(R.id.lbl_telefono);
             textViewDUI = itemView.findViewById(R.id.lbl_dui);
+            textViewEstado = itemView.findViewById(R.id.lbl_estado);
 
         }
     }
