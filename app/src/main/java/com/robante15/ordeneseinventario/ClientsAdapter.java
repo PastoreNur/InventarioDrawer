@@ -38,10 +38,10 @@ public class ClientsAdapter extends RecyclerView.Adapter<ClientsAdapter.ClientVi
         String apellidos = client.getApellidos();
         String Telefono = String.valueOf(client.getTelefono());
 
-        holder.textViewNombre.setText(nombre);
+        holder.textViewNombre.setText("Nombre: "+nombre);
         holder.textViewApellido.setText(apellidos);
-        holder.textViewTelefono.setText(Telefono);
-        holder.textViewDUI.setText(client.getDui());
+        holder.textViewTelefono.setText("Teléfono: "+Telefono);
+        holder.textViewDUI.setText("DUI: " + String.valueOf(client.getDui()));
     }
 
     public int getItemCount() {
