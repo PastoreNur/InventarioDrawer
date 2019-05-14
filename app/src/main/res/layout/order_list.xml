@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+
+        <TextView
+            android:id="@+id/lbl_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="ID ID" />
+
+        <TextView
+            android:id="@+id/lbl_fecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_toEndOf="@id/lbl_id"
+            tools:text="Fecha Fecha" />
+
+        <TextView
+            android:id="@+id/lbl_productos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lbl_fecha"
+            android:layout_marginTop="5dp"
+            tools:text="Nº de productos: 00" />
+
+        <TextView
+            android:id="@+id/lbl_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lbl_productos"
+            android:layout_marginTop="5dp"
+            tools:text="Total: $" />
+        <TextView
+            android:id="@+id/lbl_estado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lbl_total"
+            android:layout_marginTop="5dp"
+            tools:text="Total: $" />
+    </RelativeLayout>
+</LinearLayout>
