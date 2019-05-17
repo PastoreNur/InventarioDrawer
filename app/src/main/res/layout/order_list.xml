@@ -41,12 +41,5 @@
             android:layout_below="@id/lbl_productos"
             android:layout_marginTop="5dp"
             tools:text="Total: $" />
-        <TextView
-            android:id="@+id/lbl_estado"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/lbl_total"
-            android:layout_marginTop="5dp"
-            tools:text="Total: $" />
     </RelativeLayout>
 </LinearLayout>

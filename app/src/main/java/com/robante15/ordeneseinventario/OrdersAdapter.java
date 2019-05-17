@@ -25,7 +25,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrderViewH
     @Override
     public OrdersAdapter.OrderViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mCtx);
-        View view = inflater.inflate(R.layout.product_list, null);
+        View view = inflater.inflate(R.layout.order_list, null);
         return new OrdersAdapter.OrderViewHolder(view);
     }
 
@@ -35,12 +35,13 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrderViewH
 
         String fecha = Double.toString(order.getFecha());
         String total = Double.toString(order.getTotal());
+        //String nProductos = Integer.toString(order.getProducts().size());
 
-        holder.textViewID.setText(order.getID());
+        holder.textViewID.setText(order.getId());
         holder.textViewFecha.setText(fecha);
-        holder.textViewNProd.setText(order.getProducts().size());
+       // holder.textViewNProd.setText(nProductos);
         holder.textViewTotal.setText("$" + total);
-        holder.textViewEstado.setText(null);
+        holder.textViewEstado.setText("");
     }
 
 

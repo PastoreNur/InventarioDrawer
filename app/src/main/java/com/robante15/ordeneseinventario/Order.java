@@ -9,17 +9,18 @@ public class Order {
     private  Client cliente;
     private double fecha;
     private List<Product> Products;
-    private int[] cantidades;
+    private List<Integer> cantidades;
     private double total;
     private String estado;
 
-    public void Order(int id, String _id, Client client, double fecha, List<Product> product,int[] cantidades,
+    public Order(int id, String _id, double fecha, List<Product> product,List<Integer> cantidades,
                       double total, String estado){
 
         this.id = id;
         this._id = _id;
-        this.cliente = client;
+       // this.cliente = client;
         this.Products = product;
+        this.fecha = fecha;
         this.cantidades = cantidades;
         this.total = total;
         this.estado = estado;
@@ -65,11 +66,11 @@ public class Order {
         Products = products;
     }
 
-    public int[] getCantidades() {
+    public List<Integer> getCantidades() {
         return cantidades;
     }
 
-    public void setCantidades(int[] cantidades) {
+    public void setCantidades(List<Integer> cantidades) {
         this.cantidades = cantidades;
     }
 

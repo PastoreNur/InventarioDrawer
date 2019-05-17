@@ -111,9 +111,9 @@ public class ClientesGeneral extends Fragment {
                             JSONArray array = object.getJSONArray("clientes");
                             clientList = Arrays.asList(gson.fromJson(object.getString("clientes"), Client[].class));
 
-                            SQLiteHelperClient sQLiteHelperClient = new SQLiteHelperClient(getActivity().getBaseContext(), "clientes", null, 1);
+                            SQLiteHelperOrder sqLiteHelperOrder = new SQLiteHelperOrder(getActivity().getBaseContext(), "clientes", null, 1);
                             //establece el metod para hacer que podamos escribir sobre la bd creada
-                            SQLiteDatabase bd = sQLiteHelperClient.getWritableDatabase();
+                            SQLiteDatabase bd = sqLiteHelperOrder.getWritableDatabase();
 
                             ContentValues registro = new ContentValues();
                             String cadena = "";
@@ -149,7 +149,7 @@ public class ClientesGeneral extends Fragment {
 
 
                             //crear el  adaptador y asignarlo al  recyclerview
-                            ClientsAdapter adapterc = new ClientsAdapter(getActivity().getBaseContext(), sQLiteHelperClient.baseDatosLocal());
+                            ClientsAdapter adapterc = new ClientsAdapter(getActivity().getBaseContext(), sqLiteHelperOrder.baseDatosLocalClient());
                             recyclerView.setAdapter(adapterc);
                         } catch (JSONException e) {
                             e.printStackTrace();
